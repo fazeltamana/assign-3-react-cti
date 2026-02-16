@@ -1,0 +1,204 @@
+:root {
+  --bg1: #0b1020;
+  --bg2: #070a14;
+  --card: rgba(255, 255, 255, 0.06);
+  --card-border: rgba(255, 255, 255, 0.12);
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(900px 520px at 20% 10%, rgba(169, 170, 223, 0.22), transparent 60%),
+    radial-gradient(900px 520px at 80% 15%, rgba(221, 110, 165, 0.2), transparent 60%),
+    radial-gradient(900px 520px at 50% 85%, rgba(34, 211, 238, 0.16), transparent 60%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+  color: #e9eef8;
+}
+
+/* Glass Card */
+
+.glass {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(10px);
+}
+
+/* ======================
+   Country Card
+====================== */
+
+.country-card {
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+  overflow: hidden;
+}
+
+.country-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+}
+
+/* ======================
+   Flag
+====================== */
+
+.flag {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+
+.flag-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px 16px 0 0;
+}
+
+/* gradient overlay on flag */
+
+.flag-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.65),
+    rgba(0, 0, 0, 0.05),
+    transparent
+  );
+  pointer-events: none;
+}
+
+/* ======================
+   Badges
+====================== */
+
+.poster-badges {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.badge-soft {
+  background: rgba(0, 0, 0, 0.35) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  backdrop-filter: blur(8px);
+  font-weight: 600;
+}
+
+/* ======================
+   Buttons
+====================== */
+
+.btn-soft {
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #eef3ff;
+}
+
+.btn-soft:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.20);
+  color: #ffffff;
+}
+
+/* ======================
+   Text
+====================== */
+
+.muted {
+  color: rgba(233, 238, 248, 0.70);
+}
+
+/* ======================
+   Skeleton Loader
+====================== */
+
+.skeleton {
+  background: rgba(255, 255, 255, 0.10);
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.skeleton::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.12),
+    transparent
+  );
+  animation: shimmer 1.2s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Skeleton Elements */
+
+.skeleton-flag {
+  height: 160px;
+  width: 100%;
+  border-radius: 16px 16px 0 0;
+}
+
+.skeleton-title {
+  height: 18px;
+  width: 70%;
+  margin-bottom: 10px;
+}
+
+.skeleton-text {
+  height: 14px;
+  width: 90%;
+  margin-bottom: 8px;
+}
+
+.skeleton-text.short {
+  width: 50%;
+}
+
+/* ======================
+   Inputs
+====================== */
+
+input,
+select {
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #eef3ff;
+  border-radius: 10px;
+  padding: 8px 12px;
+}
+
+input::placeholder {
+  color: rgba(233, 238, 248, 0.60);
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #6366f1;
+}
+
+/* ======================
+   Responsive
+====================== */
+
+@media (max-width: 576px) {
+  .flag {
+    height: 140px;
+  }
+} 
