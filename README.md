@@ -1,16 +1,25 @@
-# React + Vite
+How to run: npm run dev
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+// Base URL for the REST Countries API
+const BASE_URL = "https://restcountries.com/v3.1";
 
-Currently, two official plugins are available:
+// Fields to include in the API response (to reduce payload size)
+const FIELDS = "name,flags,region,population,capital,cca3";
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+// Endpoint to get all countries with specified fields
+url = `${BASE_URL}/all?fields=${FIELDS}`; 
+// Example: Fetches all countries, including name, flag, region, population, capital, and country code (cca3)
 
-## React Compiler
+// Endpoint to search for a country by name with specified fields
+url = `${BASE_URL}/name/${debouncedSearch}?fields=${FIELDS}`; 
+// Example: Fetches countries that match the search term in 'debouncedSearch', returning only the specified fields
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+// Endpoint to get all countries in a specific region with specified fields
+url = `${BASE_URL}/region/${region}?fields=${FIELDS}`; 
+// Example: Fetches countries in a given region (e.g., Asia, Europe), returning only the specified fields
 
-## Expanding the ESLint configuration
+ 
+HOME + RESULTS
+<img width="1886" height="1079" alt="Screenshot 2026-02-16 173421" src="https://github.com/user-attachments/assets/d19717e1-e726-4d19-8e38-2dd9b5fbc470" />
+<img width="1905" height="1079" alt="image" src="https://github.com/user-attachments/assets/a8fffde7-2ef3-4af8-9b48-c237b060ca36" />
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
