@@ -15,7 +15,7 @@ export default function CountriesCard({ country }) {
 
   return (
     <article className="country-card glass rounded-4 h-100">
-      
+
       {/* Flag */}
       <div className="flag-wrap">
         <img
